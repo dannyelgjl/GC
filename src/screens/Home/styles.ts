@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import logo from '../../assets/logos/ct1.png';
+import passIcon from '../../assets/logos/pass.png';
+import THEME from '../../styles/theme/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -12,6 +14,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 1200px;
   height: 128px;
   border-radius: 2px;
@@ -22,6 +25,11 @@ export const Header = styled.div`
   padding: 18px;
 `;
 
+export const AvantarContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const Avatar = styled.img.attrs({
   src: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ac/ac6fd3610257492db106bc30892bf213aa4a0689_full.jpg'
 })`
@@ -29,5 +37,38 @@ export const Avatar = styled.img.attrs({
   height: 48px;
   padding: 2px;
   border-radius: 24px;
-  border: 2px solid red;
+  border: 2px solid ${THEME.PRIMARY.GREEN};
+  margin-right: 16px
+`;
+
+export const UserInfor = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const NickName = styled.h2`
+  font-size: 16px;
+  color: ${THEME.NEUTRAL.WHITE};
+  font-family: 'Poppins';
+  font-weight: 500;
+  line-height: 24px;
+`
+
+export const ID = styled.p`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.48);
+`;
+
+export const LevelGamer = styled.div``
+
+export const Pass = styled.img.attrs({
+  src: passIcon,
+})`
+  width: 60px;
+  height: 80px;
 `;
