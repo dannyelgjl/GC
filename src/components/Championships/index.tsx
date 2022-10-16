@@ -5,8 +5,8 @@ const Championships: React.FC = () => {
   return (
     <S.Container>
       <S.TitleContainer>
-      <S.TrophyIcon />
-      <S.Title>Campeonatos</S.Title>
+        <S.TrophyIcon />
+        <S.Title>Campeonatos</S.Title>
       </S.TitleContainer>
     
     <S.InscriptionContainer>
