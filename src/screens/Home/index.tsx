@@ -1,5 +1,11 @@
-import { Card, Avatar } from '../../components';
-import {Container, Header, LevelGamer, Pass} from './styles';
+import { Card, Avatar, Championships } from '../../components';
+import {
+  Container, 
+  Header, 
+  LevelGamer, 
+  Pass, 
+  Content, 
+} from './styles';
 
 const Home = () => {
   return (
@@ -14,7 +20,12 @@ const Home = () => {
 
           <Pass />
         </Header>
-        <h1>Daniel</h1>
+
+        <Content>
+          <Championships />
+          <Championships />
+          <Championships />
+        </Content>
       </Card>
     </Container>
   );

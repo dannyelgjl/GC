@@ -5,6 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   width: 1200px;
   height: 436px;
-  background-color: red;
   border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
 `;
