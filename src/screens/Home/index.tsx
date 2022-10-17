@@ -59,7 +59,30 @@ const Home = () => {
           </GameDetailContainer>
 
 
-          <Championships />
+          <GameDetailContainer>
+            <TitleContainer>
+              <Icon />
+              <Title>Lobby</Title>
+            </TitleContainer>
+
+            <CardsGameContainer>
+              <CardsGame>
+                  <NumberGames>540</NumberGames>
+                  <Games>Partidas</Games>
+              </CardsGame>
+
+              <CardsGame>
+                  <NumberGames>540</NumberGames>
+                  <Games>Partidas</Games>
+              </CardsGame>
+
+              <CardsGame>
+                  <NumberGames>540</NumberGames>
+                  <Games>Partidas</Games>
+              </CardsGame>
+            </CardsGameContainer>
+            <Button icon={iconArrow} title='Ir para a Lobby'/>
+          </GameDetailContainer>
         </Content>
       </Card>
     </Container>
