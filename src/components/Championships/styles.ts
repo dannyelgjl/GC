@@ -5,6 +5,7 @@ import trophyIcon from '../../assets/icons/trophy.png';
 
 export const Container = styled.div`
   display: flex;
+  width: 33.3%;
   flex-direction: column;
   padding: 24px 16px 24px 16px;
   border: 0.5px solid rgba(255, 255, 255, 0.16);
