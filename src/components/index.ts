@@ -8,3 +8,4 @@ export { default as ProgressBar } from "./ProgressBar";
 export { default as Medal } from "./Medal";
 export { default as PlayersStatus } from "./PlayersStatus";
 export { default as Popover } from "./Popover";
+export { default as SubscribedTeams } from "./SubscribedTeams";

@@ -116,6 +116,7 @@ export const Wrapper = styled.div<IBorder>`
 
 export const Footer = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 16px;
@@ -138,6 +139,8 @@ export const ButtonConfig = styled.button`
     inset 0px 1px 0px rgba(255, 255, 255, 0.24);
   border-radius: 2px;
   outline: none;
+
+  cursor: pointer;
 `;
 
 export const ButtonDownload = styled.a`
@@ -191,6 +194,7 @@ export const ChangeAvatarContainer = styled.button`
   border-style: none;
   outline: none;
   margin-bottom: 18px;
+  cursor: pointer;
 `;
 
 export const UserPlusIcon = styled.img.attrs({
@@ -216,6 +220,7 @@ export const HideCheatersContainer = styled.button`
   margin-bottom: 18px;
   outline: none;
   border: none;
+  cursor: pointer;
 `;
 
 export const EyerOffIcon = styled.img.attrs({

@@ -1,13 +1,19 @@
-import React from "react";
+import { ReactNode } from "react";
 import * as S from "./styles";
 
 interface IChampionships {
   title?: string;
   championshipName?: string;
   status?: string;
+  children?: ReactNode;
 }
 
-const Championships = ({ title, status, championshipName }: IChampionships) => {
+const Championships = ({
+  title,
+  status,
+  championshipName,
+  children,
+}: IChampionships) => {
   return (
     <S.Container>
       <S.TitleContainer>
@@ -21,7 +27,7 @@ const Championships = ({ title, status, championshipName }: IChampionships) => {
         </S.OpenSubscriptions>
 
         <S.ChampionshipType>{championshipName}</S.ChampionshipType>
-        <h1>Times Inscritos</h1>
+        <div>{children}</div>
       </S.InscriptionContainer>
     </S.Container>
   );

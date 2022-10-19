@@ -58,6 +58,7 @@ export const OpenSubscriptionsTitle = styled.p`
 `;
 
 export const ChampionshipType = styled.h2`
+  height: 50px;
   margin-top: 20px;
   font-family: "Teko";
   font-style: normal;

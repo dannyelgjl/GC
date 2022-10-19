@@ -1,5 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import THEME from "../../styles/theme/theme";
+
+type Color = {
+  isColorNumberDefault?: boolean;
+  isColorNumberRed?: boolean;
+  isColorNumberBlue?: boolean;
+};
 
 export const Container = styled.div`
   display: flex;
@@ -49,14 +55,51 @@ export const CardsGame = styled.div`
   );
 `;
 
-export const NumberGames = styled.h2`
+export const NumberGames = styled.h2<Color>`
   font-family: "Teko";
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
-  color: ${THEME.PRIMARY.YELLOW};
+
+  ${({ isColorNumberDefault }) =>
+    isColorNumberDefault &&
+    css`
+      color: ${THEME.PRIMARY.YELLOW};
+    `}
+
+  ${({ isColorNumberBlue }) =>
+    isColorNumberBlue &&
+    css`
+      color: ${THEME.PRIMARY.BLUE};
+    `}
+
+  ${({ isColorNumberRed }) =>
+    isColorNumberRed &&
+    css`
+      color: ${THEME.SECONDARY.RED};
+    `}
+`;
+
+export const NumberVictorie = styled.h2`
+  font-family: "Teko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: ${THEME.PRIMARY.GREEN};
+`;
+
+export const NumberDefeats = styled.h2`
+  font-family: "Teko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: ${THEME.PRIMARY.RED};
 `;
 
 export const Games = styled.p`

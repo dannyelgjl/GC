@@ -8,6 +8,8 @@ type IRotate = {
 
 type Color = {
   isChangeColor: boolean;
+  isBarColor?: boolean;
+  value?: number;
 };
 
 export const Container = styled.div`
@@ -30,7 +32,7 @@ export const ContainerBar = styled.div`
 `;
 
 export const Bar = styled.div<Color>`
-  width: 50%;
+  width: ${({ isBarColor, value }) => isBarColor && `${value}%`};
   height: 8px;
   border-radius: 16px;
   background: ${({ isChangeColor }) => `

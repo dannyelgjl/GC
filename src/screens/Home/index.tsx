@@ -1,4 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+} from "react";
 import {
   Card,
   Avatar,
@@ -10,6 +16,7 @@ import {
   Medal,
   PlayersStatus,
   Popover,
+  SubscribedTeams,
 } from "../../components";
 import iconArrow from "../../assets/icons/arrow.png";
 import lobbyIcon from "../../assets/icons/door.png";
@@ -41,7 +48,8 @@ const Home = () => {
   const [player, setPlayer] = useState({} as IPlayerDetail);
   const [showPopover, setShowPopover] = useState<boolean>(false);
   const [showCheaters, setShowCheaters] = useState<boolean>(true);
-  const [changePlayer, setChangePlayer] = useState(false);
+  const [changePlayer, setChangePlayer] = useState<boolean>(false);
+  const [totalValue, setTotalValue] = useState<number>(0);
 
   useEffect(() => {
     api
@@ -51,6 +59,19 @@ const Home = () => {
       })
       .catch((err) => console.log(err));
   }, [changePlayer]);
+
+  useMemo(() => {
+    const maxTeams = player?.tournaments?.nextTournament?.maxTeams ?? 0;
+
+    const currentTeams = player?.tournaments?.nextTournament?.currentTeams ?? 0;
+
+    const finalValue = (currentTeams * 100) / maxTeams;
+
+    setTotalValue(finalValue);
+  }, [
+    player?.tournaments?.nextTournament?.currentTeams,
+    player?.tournaments?.nextTournament?.maxTeams,
+  ]);
 
   const handleChangePlayer = () => {
     setChangePlayer(!changePlayer);
@@ -63,12 +84,6 @@ const Home = () => {
   const handleShowPopover = () => {
     setShowPopover(!showPopover);
   };
-
-  // const rankedLevel = ({ typeRanked }: string) => {
-  //   const ranked = player?.ranked?.type === typeRanked;
-
-  //   return ranked;
-  // };
 
   const handleOpenLobby = useCallback(() => {
     window.open(player?.lobby?.action?.link, "_blank");
@@ -94,6 +109,8 @@ const Home = () => {
           <ProgressBar
             isChangeColor={changePlayer}
             pinIcon={changePlayer ? pinRed : pinBlue}
+            isBarColor
+            value={player?.player?.expertise}
           />
 
           <Medal
@@ -104,11 +121,25 @@ const Home = () => {
 
         <Content>
           <Wrapper borderRight>
-            <Championships
-              title={player?.tournaments?.label}
-              championshipName={player?.tournaments?.nextTournament?.name}
-              status={player?.tournaments?.nextTournament?.status}
-            />
+            <div>
+              <Championships
+                title={player?.tournaments?.label}
+                championshipName={player?.tournaments?.nextTournament?.name}
+                status={player?.tournaments?.nextTournament?.status}
+              >
+                <SubscribedTeams
+                  subscribedQuantity={
+                    player?.tournaments?.nextTournament?.currentTeams
+                  }
+                  maxParticipants={
+                    player?.tournaments?.nextTournament?.maxTeams
+                  }
+                  value={totalValue}
+                  isProgressBar
+                />
+              </Championships>
+              {/* renderComponent={() => <Header />} */}
+            </div>
           </Wrapper>
 
           <Wrapper borderRight>
@@ -121,6 +152,7 @@ const Home = () => {
               victoriesLabel="Vitória"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
+              isColorNumberDefault
             />
 
             <Button
@@ -142,6 +174,8 @@ const Home = () => {
               victoriesLabel="Vitória"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
+              isColorNumberBlue={player?.ranked?.type === "open"}
+              isColorNumberRed={player?.ranked?.type === "pro"}
             />
 
             <Button
@@ -192,21 +226,21 @@ const Home = () => {
               />
             )}
           </S.PlayersStatusContainer>
+
+          <Popover show={showPopover}>
+            <S.ChangeAvatarContainer onClick={() => handleChangePlayer()}>
+              <S.UserPlusIcon />
+              <S.Label to="">Alterar Avatar</S.Label>
+            </S.ChangeAvatarContainer>
+
+            <S.HideCheatersContainer onClick={() => handleShowCheaters()}>
+              <S.EyerOffIcon />
+
+              <S.Label to="">Ocultar Cheaters Banidos</S.Label>
+            </S.HideCheatersContainer>
+          </Popover>
         </Footer>
       </Card>
-
-      <Popover show={showPopover}>
-        <S.ChangeAvatarContainer onClick={() => handleChangePlayer()}>
-          <S.UserPlusIcon />
-          <S.Label to="">Alterar Avatar</S.Label>
-        </S.ChangeAvatarContainer>
-
-        <S.HideCheatersContainer onClick={() => handleShowCheaters()}>
-          <S.EyerOffIcon />
-
-          <S.Label to="">Ocultar Cheaters Banidos</S.Label>
-        </S.HideCheatersContainer>
-      </Popover>
     </Container>
   );
 };

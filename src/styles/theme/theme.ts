@@ -6,6 +6,10 @@ const PRIMARY = {
   BLUE: "#2196FD",
 };
 
+const SECONDARY = {
+  RED: "#F23641",
+};
+
 const NEUTRAL = {
   WHITE: "#FFFFFF",
   BLACK: "#000000",
@@ -14,6 +18,7 @@ const NEUTRAL = {
 const THEME = {
   PRIMARY,
   NEUTRAL,
+  SECONDARY,
 };
 
 export default THEME;

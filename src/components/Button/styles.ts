@@ -17,6 +17,8 @@ export const Container = styled.button<Color>`
 
   border-style: none;
 
+  cursor: pointer;
+
   ${({ isChangeColor }) =>
     isChangeColor &&
     css`
@@ -26,7 +28,7 @@ export const Container = styled.button<Color>`
   ${({ isChangeColorPro }) =>
     isChangeColorPro &&
     css`
-      background-color: ${THEME.PRIMARY.RED};
+      background-color: ${THEME.SECONDARY.RED};
     `}
 
     ${({ isChangeColorOpen }) =>

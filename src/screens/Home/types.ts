@@ -14,6 +14,7 @@ interface IPlayer {
   id?: number;
   nickname?: string;
   avatar?: string;
+  expertise?: number;
 }
 interface IFeaturedMedal {
   name?: string;

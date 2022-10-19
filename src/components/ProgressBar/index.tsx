@@ -14,9 +14,16 @@ import {
 interface IProgressBar {
   isChangeColor: boolean;
   pinIcon: string;
+  isBarColor?: boolean;
+  value?: number;
 }
 
-const ProgressBar = ({ isChangeColor, pinIcon }: IProgressBar) => {
+const ProgressBar = ({
+  isChangeColor,
+  pinIcon,
+  isBarColor,
+  value,
+}: IProgressBar) => {
   return (
     <Container>
       <LevelTop>
@@ -32,7 +39,11 @@ const ProgressBar = ({ isChangeColor, pinIcon }: IProgressBar) => {
       </LevelTop>
 
       <ContainerBar>
-        <Bar isChangeColor={isChangeColor} />
+        <Bar
+          isBarColor={isBarColor}
+          value={value}
+          isChangeColor={isChangeColor}
+        />
       </ContainerBar>
 
       <LevelBottom>
