@@ -8,6 +8,8 @@ import {
   Header,
   ProgressBar,
   Medal,
+  PlayersStatus,
+  Popover,
 } from "../../components";
 import iconArrow from "../../assets/icons/arrow.png";
 import lobbyIcon from "../../assets/icons/door.png";
@@ -19,26 +21,39 @@ import {
   Wrapper,
   Footer,
   ConfigContainer,
-  PlayersOnlineContainer,
   ButtonConfig,
   IconGear,
   ButtonDownload,
   ButtonTitle,
   DownloadIcon,
 } from "./styles";
+import * as S from "./styles";
 import api from "../../service/api";
+
 import { IPlayerDetail } from "./types";
 
 const Home = () => {
   const [player, setPlayer] = useState({} as IPlayerDetail);
-
-  console.log(player);
+  const [showPopover, setShowPopover] = useState<boolean>(false);
+  const [showCheaters, setShowCheaters] = useState<boolean>(true);
 
   useEffect(() => {
-    api.get("/fallen").then((response) => {
-      setPlayer(response.data.data);
-    });
+    api
+      .get("/fallen")
+      .then((response) => {
+        setPlayer(response.data.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
+
+  const handleShowCheaters = () => {
+    setShowCheaters(!showCheaters)!;
+  };
+
+  const handleShowPopover = () => {
+    setShowPopover(!showPopover);
+  };
+
   // |
   return (
     <Container>
@@ -96,21 +111,59 @@ const Home = () => {
 
         <Footer>
           <ConfigContainer>
-            <ButtonConfig>
+            <ButtonConfig onClick={() => handleShowPopover()}>
               <IconGear />
             </ButtonConfig>
 
-            <ButtonDownload>
+            <ButtonDownload
+              href={!player.anticheat.download ? "" : player.anticheat.download}
+              target="_blank"
+            >
               <DownloadIcon />
               <ButtonTitle>Baixar Gamers Club Anti-Cheat</ButtonTitle>
             </ButtonDownload>
           </ConfigContainer>
 
-          <PlayersOnlineContainer>
-            <h1>daniel</h1>
-          </PlayersOnlineContainer>
+          <S.PlayersStatusContainer>
+            <PlayersStatus
+              colorStatus
+              quantityOnline={
+                player?.reports?.length ? player?.reports[0]?.total : 0
+              }
+              title="Jogadores"
+              status="Online"
+              isMargin
+            />
+
+            {showCheaters && (
+              <PlayersStatus
+                quantityOnline={
+                  player?.reports?.length ? player?.reports[1]?.total : 0
+                }
+                title="Cheaters Banidos"
+                status="Nos últimos 7 dias"
+              />
+            )}
+          </S.PlayersStatusContainer>
         </Footer>
       </Card>
+
+      <Popover show={showPopover}>
+        <S.ChangeAvatarContainer>
+          <S.UserPlusIcon />
+          <S.Label
+            target="_blank"
+            to={!player?.anticheat?.download ? "" : player?.anticheat?.download}
+          >
+            Alterar Avatar
+          </S.Label>
+        </S.ChangeAvatarContainer>
+
+        <S.HideCheatersContainer onClick={() => handleShowCheaters()}>
+          <S.EyerOffIcon />
+          <S.Label to="">Ocultar Cheaters Banidos</S.Label>
+        </S.HideCheatersContainer>
+      </Popover>
     </Container>
   );
 };

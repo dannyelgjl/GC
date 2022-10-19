@@ -60,9 +60,9 @@ interface IAnticheat {
 }
 
 interface IReports {
-  type?: string;
-  total?: number;
-  label?: string;
+  type: string;
+  total: number;
+  label: string;
 }
 
 interface IConfig {

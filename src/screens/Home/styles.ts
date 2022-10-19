@@ -3,6 +3,10 @@ import passIcon from "../../assets/logos/pass.png";
 import icon from "../../assets/icons/door.png";
 import iconGear from "../../assets/icons/gear.png";
 import iconDownload from "../../assets/icons/download.png";
+import userPlusIcon from "../../assets/icons/userplus.png";
+import eyerOffIcon from "../../assets/icons/eyeoff.png";
+import { Link } from "react-router-dom";
+
 import THEME from "../../styles/theme/theme";
 
 type IBorder = {
@@ -135,7 +139,7 @@ export const ButtonConfig = styled.button`
   border-radius: 2px;
 `;
 
-export const ButtonDownload = styled.button`
+export const ButtonDownload = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,4 +182,46 @@ export const DownloadIcon = styled.img.attrs({
   margin-right: 12px;
 `;
 
-export const PlayersOnlineContainer = styled.div``;
+export const PlayersStatusContainer = styled.div`
+  display: flex;
+`;
+
+export const ChangeAvatarContainer = styled.div`
+  display: flex;
+  background: #383b51;
+  border-style: none;
+  outline: none;
+  margin-bottom: 18px;
+`;
+
+export const UserPlusIcon = styled.img.attrs({
+  src: userPlusIcon,
+})`
+  width: 19px;
+  height: 22px;
+  margin-right: 16px;
+`;
+
+export const Label = styled(Link)`
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: ${THEME.NEUTRAL.WHITE};
+  outline: none;
+`;
+
+export const HideCheatersContainer = styled.button`
+  display: flex;
+  background: #383b51;
+  border-style: none;
+  margin-bottom: 18px;
+`;
+
+export const EyerOffIcon = styled.img.attrs({
+  src: eyerOffIcon,
+})`
+  width: 22px;
+  height: 16px;
+  margin-right: 16px;
+`;
