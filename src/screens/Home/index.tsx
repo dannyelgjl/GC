@@ -27,6 +27,8 @@ import {
   ButtonTitle,
   DownloadIcon,
 } from "./styles";
+import ctLogo from "../../assets/logos/ct.png";
+import terrorLogo from "../../assets/logos/terror.png";
 import * as S from "./styles";
 import api from "../../service/api";
 
@@ -36,15 +38,20 @@ const Home = () => {
   const [player, setPlayer] = useState({} as IPlayerDetail);
   const [showPopover, setShowPopover] = useState<boolean>(false);
   const [showCheaters, setShowCheaters] = useState<boolean>(true);
+  const [changePlayer, setChangePlayer] = useState(false);
 
   useEffect(() => {
     api
-      .get("/fallen")
+      .get(`/${changePlayer ? "fallen" : "lizzy"}`)
       .then((response) => {
         setPlayer(response.data.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [changePlayer]);
+
+  const handleChangePlayer = () => {
+    setChangePlayer(!changePlayer);
+  };
 
   const handleShowCheaters = () => {
     setShowCheaters(!showCheaters)!;
@@ -58,7 +65,7 @@ const Home = () => {
   return (
     <Container>
       <Card>
-        <Header>
+        <Header logo={changePlayer ? terrorLogo : ctLogo}>
           <Avatar
             avatar={player?.player?.avatar}
             nickname={player?.player?.nickname}
@@ -116,7 +123,9 @@ const Home = () => {
             </ButtonConfig>
 
             <ButtonDownload
-              href={!player.anticheat.download ? "" : player.anticheat.download}
+              href={
+                !player?.anticheat?.download ? "" : player?.anticheat?.download
+              }
               target="_blank"
             >
               <DownloadIcon />
@@ -149,18 +158,14 @@ const Home = () => {
       </Card>
 
       <Popover show={showPopover}>
-        <S.ChangeAvatarContainer>
+        <S.ChangeAvatarContainer onClick={() => handleChangePlayer()}>
           <S.UserPlusIcon />
-          <S.Label
-            target="_blank"
-            to={!player?.anticheat?.download ? "" : player?.anticheat?.download}
-          >
-            Alterar Avatar
-          </S.Label>
+          <S.Label to="">Alterar Avatar</S.Label>
         </S.ChangeAvatarContainer>
 
         <S.HideCheatersContainer onClick={() => handleShowCheaters()}>
           <S.EyerOffIcon />
+
           <S.Label to="">Ocultar Cheaters Banidos</S.Label>
         </S.HideCheatersContainer>
       </Popover>

@@ -5,6 +5,7 @@ import iconGear from "../../assets/icons/gear.png";
 import iconDownload from "../../assets/icons/download.png";
 import userPlusIcon from "../../assets/icons/userplus.png";
 import eyerOffIcon from "../../assets/icons/eyeoff.png";
+import eyerIcon from "../../assets/icons/eye-outline.png";
 import { Link } from "react-router-dom";
 
 import THEME from "../../styles/theme/theme";
@@ -133,10 +134,10 @@ export const ButtonConfig = styled.button`
   margin-right: 8px;
   padding: 8px;
   background: #383b51;
-  border: 1px solid rgba(255, 255, 255, 0.24);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
     inset 0px 1px 0px rgba(255, 255, 255, 0.24);
   border-radius: 2px;
+  outline: none;
 `;
 
 export const ButtonDownload = styled.a`
@@ -149,12 +150,10 @@ export const ButtonDownload = styled.a`
   padding: 12px 24px 12px 24px;
 
   background: #383b51;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
     inset 0px 1px 0px rgba(255, 255, 255, 0.24);
   border-radius: 2px;
-
-  border-style: none;
 `;
 
 export const ButtonTitle = styled.h2`
@@ -186,7 +185,7 @@ export const PlayersStatusContainer = styled.div`
   display: flex;
 `;
 
-export const ChangeAvatarContainer = styled.div`
+export const ChangeAvatarContainer = styled.button`
   display: flex;
   background: #383b51;
   border-style: none;
@@ -214,8 +213,9 @@ export const Label = styled(Link)`
 export const HideCheatersContainer = styled.button`
   display: flex;
   background: #383b51;
-  border-style: none;
   margin-bottom: 18px;
+  outline: none;
+  border: none;
 `;
 
 export const EyerOffIcon = styled.img.attrs({
@@ -223,5 +223,13 @@ export const EyerOffIcon = styled.img.attrs({
 })`
   width: 22px;
   height: 16px;
+  margin-right: 16px;
+`;
+
+export const EyeOutlineIcon = styled.img.attrs({
+  src: eyerIcon,
+})`
+  width: 28px;
+  height: 28px;
   margin-right: 16px;
 `;
