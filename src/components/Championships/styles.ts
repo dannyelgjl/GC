@@ -35,6 +35,7 @@ export const InscriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
+  background: #282a3e;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 2px;
   margin-top: 16px;

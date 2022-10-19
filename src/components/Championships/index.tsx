@@ -1,28 +1,30 @@
-import React from 'react';
-import * as S from './styles';
+import React from "react";
+import * as S from "./styles";
 
-const Championships: React.FC = () => {
+interface IChampionships {
+  title?: string;
+  championshipName?: string;
+  status?: string;
+}
+
+const Championships = ({ title, status, championshipName }: IChampionships) => {
   return (
     <S.Container>
       <S.TitleContainer>
         <S.TrophyIcon />
-        <S.Title>Campeonatos</S.Title>
+        <S.Title>{title}</S.Title>
       </S.TitleContainer>
-    
-    <S.InscriptionContainer>
-      <S.OpenSubscriptions>
-        <S.OpenSubscriptionsTitle>
-            Inscrições Abertas
-        </S.OpenSubscriptionsTitle>
-      </S.OpenSubscriptions>
 
-      <S.ChampionshipType>
-        LIGA UNIVERSITÁRIA GAMERS CLUB QUALIFIER #1
-      </S.ChampionshipType>
-      <h1>Times Inscritos</h1>
-    </S.InscriptionContainer>
-  </S.Container>
+      <S.InscriptionContainer>
+        <S.OpenSubscriptions>
+          <S.OpenSubscriptionsTitle>{status}</S.OpenSubscriptionsTitle>
+        </S.OpenSubscriptions>
+
+        <S.ChampionshipType>{championshipName}</S.ChampionshipType>
+        <h1>Times Inscritos</h1>
+      </S.InscriptionContainer>
+    </S.Container>
   );
-}
+};
 
 export default Championships;

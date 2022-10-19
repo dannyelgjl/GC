@@ -9,6 +9,8 @@ export const Container = styled.button`
   border-radius: 2px;
   background-color: ${THEME.PRIMARY.YELLOW};
   padding: 12px;
+
+  border-style: none;
 `;
 
 export const Wrapper = styled.div`

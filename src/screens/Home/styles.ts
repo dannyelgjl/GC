@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import passIcon from "../../assets/logos/pass.png";
 import icon from "../../assets/icons/door.png";
+import iconGear from "../../assets/icons/gear.png";
+import iconDownload from "../../assets/icons/download.png";
 import THEME from "../../styles/theme/theme";
+
+type IBorder = {
+  borderRight?: boolean;
+};
 
 export const Container = styled.div`
   display: flex;
@@ -91,12 +97,85 @@ export const Games = styled.p`
   color: ${THEME.NEUTRAL.WHITE};
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<IBorder>`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
+
+  border-right: ${({ borderRight }) =>
+    borderRight ? "0.5px solid rgba(255, 255, 255, 0.16)" : ""}; //
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.16);
-  border-right: 0.5px solid rgba(255, 255, 255, 0.16);
   padding: 24px 16px 24px 16px;
 `;
+
+export const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  width: 100%;
+`;
+
+export const ConfigContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ButtonConfig = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  padding: 8px;
+  background: #383b51;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
+    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+`;
+
+export const ButtonDownload = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex-direction: row;
+
+  padding: 12px 24px 12px 24px;
+
+  background: #383b51;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
+    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+
+  border-style: none;
+`;
+
+export const ButtonTitle = styled.h2`
+  text-align: center;
+  color: ${THEME.NEUTRAL.WHITE};
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+`;
+
+export const IconGear = styled.img.attrs({
+  src: iconGear,
+})`
+  width: 22px;
+  height: 22px;
+`;
+
+export const DownloadIcon = styled.img.attrs({
+  src: iconDownload,
+})`
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+`;
+
+export const PlayersOnlineContainer = styled.div``;

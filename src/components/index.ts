@@ -5,3 +5,4 @@ export { default as Button } from "./Button";
 export { default as GameDetails } from "./GameDetails";
 export { default as Header } from "./Header";
 export { default as ProgressBar } from "./ProgressBar";
+export { default as Medal } from "./Medal";

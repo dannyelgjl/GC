@@ -1,4 +1,4 @@
 export interface IButton {
-    title: string;
-    icon: string;
+  title?: string;
+  icon: string;
 }

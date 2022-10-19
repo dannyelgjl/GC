@@ -1,4 +1,5 @@
 export interface IAvatar {
-    nickname: string;
-    id: string;
+  id?: string;
+  nickname?: string;
+  avatar?: string;
 }
