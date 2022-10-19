@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type Logo = {
   logo: string;
+  isColor: boolean;
 };
 
 export const Container = styled.div<Logo>`
@@ -11,11 +12,14 @@ export const Container = styled.div<Logo>`
   width: 1200px;
   height: 128px;
   border-radius: 2px;
-  background: ${({ logo }) => `
+  background: ${({ logo, isColor }) => `
     linear-gradient(
       180deg,
-      rgba(73, 163, 253, 0.16) 0%,
-      rgba(73, 163, 253, 0) 100%
+      ${
+        isColor
+          ? "rgba(251, 75, 86, 0.08) 0%, rgba(251, 75, 86, 0) 100%"
+          : "rgba(73, 163, 253, 0.16) 0%,  rgba(73, 163, 253, 0) 100%"
+      }
     ),
     linear-gradient(
     90deg,
@@ -25,7 +29,6 @@ export const Container = styled.div<Logo>`
     ),
     url(${logo}), #212335;
 `};
-
   background-size: cover;
   background-repeat: no-repeat;
   padding: 18px;

@@ -15,6 +15,8 @@ import iconArrow from "../../assets/icons/arrow.png";
 import lobbyIcon from "../../assets/icons/door.png";
 import usersIcon from "../../assets/icons/users.png";
 import missionsIcon from "../../assets/icons/missions.png";
+import pinBlue from "../../assets/icons/pin.png";
+import pinRed from "../../assets/icons/pin-red.png";
 import {
   Container,
   Content,
@@ -65,16 +67,25 @@ const Home = () => {
   return (
     <Container>
       <Card>
-        <Header logo={changePlayer ? terrorLogo : ctLogo}>
+        <Header
+          isColor={changePlayer}
+          logo={changePlayer ? terrorLogo : ctLogo}
+        >
           <Avatar
             avatar={player?.player?.avatar}
             nickname={player?.player?.nickname}
             id={`ID: ${player?.player?.id}`}
           />
 
-          <ProgressBar />
+          <ProgressBar
+            isChangeColor={changePlayer}
+            pinIcon={changePlayer ? pinRed : pinBlue}
+          />
 
-          <Medal medal={player?.featuredMedal?.image} />
+          <Medal
+            medal={player?.featuredMedal?.image}
+            isChangeColor={changePlayer}
+          />
         </Header>
 
         <Content>

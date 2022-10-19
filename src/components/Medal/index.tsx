@@ -2,10 +2,10 @@ import { IMedal } from "./types";
 
 import { Container, Line, MedalIcon } from "./styles";
 
-const Medal = ({ medal }: IMedal) => {
+const Medal = ({ medal, isChangeColor }: IMedal) => {
   return (
-    <Container>
-      <Line />
+    <Container isChangeColor={isChangeColor}>
+      <Line isChangeColor={isChangeColor} />
       <MedalIcon src={medal} />
     </Container>
   );

@@ -106,7 +106,7 @@ export const Wrapper = styled.div<IBorder>`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%;
+  width: 33.4%;
 
   border-right: ${({ borderRight }) =>
     borderRight ? "0.5px solid rgba(255, 255, 255, 0.16)" : ""}; //

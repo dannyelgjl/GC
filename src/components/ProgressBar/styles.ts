@@ -6,6 +6,10 @@ type IRotate = {
   rotatePin?: boolean;
 };
 
+type Color = {
+  isChangeColor: boolean;
+};
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,11 +29,17 @@ export const ContainerBar = styled.div`
   padding: 4px;
 `;
 
-export const Bar = styled.div`
+export const Bar = styled.div<Color>`
   width: 50%;
   height: 8px;
   border-radius: 16px;
-  background: linear-gradient(90deg, #49a3fd 0%, #61b3fa 100%);
+  background: ${({ isChangeColor }) => `
+    ${
+      isChangeColor
+        ? "linear-gradient(90deg, #FB4B56 0%, #FC6973 100%)"
+        : "linear-gradient(90deg, #49a3fd 0%, #61b3fa 100%)"
+    }
+  `};
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16),
     inset 0px 1px 0px rgba(255, 255, 255, 0.24);
@@ -52,12 +62,9 @@ export const LevelBottom = styled.div`
   padding: 4px;
 `;
 
-export const Pin = styled.img.attrs({
-  src: pinIcon,
-})`
-  height: 22 px;
+export const Pin = styled.img`
+  height: 22px;
   width: 18px;
-
   ${({ rotatePin }: IRotate) =>
     rotatePin ? "transform:rotate(180deg)" : "none"}
 `;

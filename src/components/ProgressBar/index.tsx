@@ -11,34 +11,39 @@ import {
   WrapperLevel,
 } from "./styles";
 
-const ProgressBar: React.FC = () => {
+interface IProgressBar {
+  isChangeColor: boolean;
+  pinIcon: string;
+}
+
+const ProgressBar = ({ isChangeColor, pinIcon }: IProgressBar) => {
   return (
     <Container>
       <LevelTop>
         <WrapperLevel>
           <TitleLevel>Casual</TitleLevel>
-          <Pin />
+          <Pin src={pinIcon} />
         </WrapperLevel>
 
         <WrapperLevel>
           <TitleLevel>Amador</TitleLevel>
-          <Pin />
+          <Pin src={pinIcon} />
         </WrapperLevel>
       </LevelTop>
 
       <ContainerBar>
-        <Bar />
+        <Bar isChangeColor={isChangeColor} />
       </ContainerBar>
 
       <LevelBottom>
         <WrapperLevel>
           <TitleLevel>Competitivo</TitleLevel>
-          <Pin rotatePin />
+          <Pin rotatePin src={pinIcon} />
         </WrapperLevel>
 
         <WrapperLevel>
           <TitleLevel>Pro</TitleLevel>
-          <Pin rotatePin />
+          <Pin rotatePin src={pinIcon} />
         </WrapperLevel>
       </LevelBottom>
     </Container>
