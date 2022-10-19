@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Card,
   Avatar,
@@ -17,6 +17,7 @@ import usersIcon from "../../assets/icons/users.png";
 import missionsIcon from "../../assets/icons/missions.png";
 import pinBlue from "../../assets/icons/pin.png";
 import pinRed from "../../assets/icons/pin-red.png";
+import missionsIconPro from "../../assets/icons/missions-pro.png";
 import {
   Container,
   Content,
@@ -63,7 +64,20 @@ const Home = () => {
     setShowPopover(!showPopover);
   };
 
-  // |
+  // const rankedLevel = ({ typeRanked }: string) => {
+  //   const ranked = player?.ranked?.type === typeRanked;
+
+  //   return ranked;
+  // };
+
+  const handleOpenLobby = useCallback(() => {
+    window.open(player?.lobby?.action?.link, "_blank");
+  }, [player?.lobby?.action?.link]);
+
+  const handleOpenRanked = useCallback(() => {
+    window.open(player?.ranked?.action?.link, "_blank");
+  }, [player?.ranked?.action?.link]);
+
   return (
     <Container>
       <Card>
@@ -109,12 +123,19 @@ const Home = () => {
               gamesLabel="Partidas"
             />
 
-            <Button title={player?.lobby?.action?.label} icon={iconArrow} />
+            <Button
+              onClick={() => handleOpenLobby()}
+              title={player?.lobby?.action?.label}
+              icon={iconArrow}
+              isChangeColor
+            />
           </Wrapper>
           <Wrapper>
             <GameDetails
               title={player?.ranked?.label}
-              icon={missionsIcon}
+              icon={
+                player?.ranked?.type === "pro" ? missionsIconPro : missionsIcon
+              }
               numberGames={player?.ranked?.matches}
               numberVictories={player?.ranked?.wins}
               numberDefeats={player?.ranked?.losses}
@@ -123,7 +144,13 @@ const Home = () => {
               gamesLabel="Partidas"
             />
 
-            <Button title={player?.ranked?.action?.label} icon={usersIcon} />
+            <Button
+              onClick={() => handleOpenRanked()}
+              title={player?.ranked?.action?.label}
+              icon={usersIcon}
+              isChangeColorPro={player?.ranked?.type === "pro"}
+              isChangeColorOpen={player?.ranked?.type === "open"}
+            />
           </Wrapper>
         </Content>
 
