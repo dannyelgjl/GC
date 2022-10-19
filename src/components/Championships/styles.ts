@@ -1,14 +1,10 @@
-import styled from 'styled-components';
-import THEME from '../../styles/theme/theme';
-import trophyIcon from '../../assets/icons/trophy.png';
-
+import styled from "styled-components";
+import THEME from "../../styles/theme/theme";
+import trophyIcon from "../../assets/icons/trophy.png";
 
 export const Container = styled.div`
   display: flex;
-  width: 33.3%;
   flex-direction: column;
-  padding: 24px 16px 24px 16px;
-  border: 0.5px solid rgba(255, 255, 255, 0.16);
 `;
 
 export const TitleContainer = styled.div`
@@ -26,7 +22,7 @@ export const TrophyIcon = styled.img.attrs({
 `;
 
 export const Title = styled.h2`
-  font-family: 'Teko';
+  font-family: "Teko";
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
   font-weight: 400;
@@ -52,7 +48,7 @@ export const OpenSubscriptions = styled.div`
 `;
 
 export const OpenSubscriptionsTitle = styled.p`
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -62,7 +58,7 @@ export const OpenSubscriptionsTitle = styled.p`
 
 export const ChampionshipType = styled.h2`
   margin-top: 20px;
-  font-family: 'Teko';
+  font-family: "Teko";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;

@@ -1,92 +1,67 @@
-import { Card, Avatar, Championships, Button } from '../../components';
-import iconArrow from '../../assets/icons/arrow.png';
 import {
-  Container, 
-  Header, 
-  LevelGamer, 
-  Pass, 
-  Content, 
-  GameDetailContainer,
-  TitleContainer,
-  Title,
-  Icon,
-  CardsGameContainer,
-  CardsGame,
-  NumberGames,
-  Games,
-} from './styles';
+  Card,
+  Avatar,
+  Championships,
+  Button,
+  GameDetails,
+  Header,
+  ProgressBar,
+} from "../../components";
+import iconArrow from "../../assets/icons/arrow.png";
+import lobbyIcon from "../../assets/icons/door.png";
+import usersIcon from "../../assets/icons/users.png";
+import missionsIcon from "../../assets/icons/missions.png";
+import { Container, Pass, Content, Wrapper } from "./styles";
 
 const Home = () => {
   return (
     <Container>
       <Card>
         <Header>
-          <Avatar nickname='GC.Muleklizzo' id='ID: 737335'/>
+          <Avatar nickname="GC.Muleklizzo" id="ID: 737335" />
 
-          <LevelGamer>
-            <h1>Daniel</h1>
-          </LevelGamer>
+          <ProgressBar />
 
           <Pass />
         </Header>
 
         <Content>
-          <Championships />
+          <Wrapper>
+            <Championships />
+          </Wrapper>
 
-          <GameDetailContainer>
-            <TitleContainer>
-              <Icon />
-              <Title>Lobby</Title>
-            </TitleContainer>
+          <Wrapper>
+            <GameDetails
+              title="Lobby"
+              icon={lobbyIcon}
+              numberGames={542}
+              numberVictories={309}
+              victoriesLabel="Vitória"
+              numberDefeats={233}
+              defeatsLabel="Derrotas"
+              gamesLabel="Partidas"
+            />
 
-            <CardsGameContainer>
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
+            <Button title="Ir para o lobby" icon={iconArrow} />
+          </Wrapper>
+          <Wrapper>
+            <GameDetails
+              title="Ranked open"
+              icon={missionsIcon}
+              numberGames={542}
+              numberVictories={309}
+              victoriesLabel="Vitória"
+              numberDefeats={233}
+              defeatsLabel="Derrotas"
+              gamesLabel="Partidas"
+            />
 
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
-
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
-            </CardsGameContainer>
-            <Button icon={iconArrow} title='Ir para a Lobby'/>
-          </GameDetailContainer>
-
-
-          <GameDetailContainer>
-            <TitleContainer>
-              <Icon />
-              <Title>Lobby</Title>
-            </TitleContainer>
-
-            <CardsGameContainer>
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
-
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
-
-              <CardsGame>
-                  <NumberGames>540</NumberGames>
-                  <Games>Partidas</Games>
-              </CardsGame>
-            </CardsGameContainer>
-            <Button icon={iconArrow} title='Ir para a Lobby'/>
-          </GameDetailContainer>
+            <Button title="Ir para o lobby" icon={usersIcon} />
+          </Wrapper>
         </Content>
       </Card>
     </Container>
   );
-}
+};
 
 export default Home;
