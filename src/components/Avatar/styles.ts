@@ -25,14 +25,14 @@ export const NickName = styled.h2`
   font-size: 16px;
   color: ${THEME.NEUTRAL.WHITE};
   font-family: "Poppins";
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   line-height: 24px;
 `;
 
 export const ID = styled.p`
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-size: 12px;
   line-height: 20px;
   color: rgba(255, 255, 255, 0.48);

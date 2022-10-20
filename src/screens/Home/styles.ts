@@ -55,7 +55,7 @@ export const Title = styled.h2`
   font-family: "Teko";
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
@@ -85,7 +85,7 @@ export const CardsGame = styled.div`
 export const NumberGames = styled.h2`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
@@ -95,7 +95,7 @@ export const NumberGames = styled.h2`
 export const Games = styled.p`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 16px;
   line-height: 16px;
   text-transform: uppercase;
@@ -133,7 +133,7 @@ export const ButtonConfig = styled.button`
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  padding: 8px;
+  padding: 10px;
   background: #383b51;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
     inset 0px 1px 0px rgba(255, 255, 255, 0.24);
@@ -164,7 +164,7 @@ export const ButtonTitle = styled.h2`
   color: ${THEME.NEUTRAL.WHITE};
 
   font-size: 20px;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   line-height: 20px;
   text-transform: uppercase;
 `;
@@ -205,10 +205,10 @@ export const UserPlusIcon = styled.img.attrs({
   margin-right: 16px;
 `;
 
-export const Label = styled(Link)`
+export const Label = styled.p`
   font-family: "Poppins", sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   line-height: 22px;
   color: ${THEME.NEUTRAL.WHITE};
   outline: none;

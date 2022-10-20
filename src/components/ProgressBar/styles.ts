@@ -81,6 +81,6 @@ export const TitleLevel = styled.h2`
   margin-right: 8px;
   font-size: 16px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   line-height: 20px;
 `;

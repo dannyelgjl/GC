@@ -1,3 +1,5 @@
+import FONT_WEIGHT from "./font";
+
 const PRIMARY = {
   PRIMARY: "#161724",
   GREEN: "#9CC00C",
@@ -19,6 +21,7 @@ const THEME = {
   PRIMARY,
   NEUTRAL,
   SECONDARY,
+  FONT_WEIGHT,
 };
 
 export default THEME;

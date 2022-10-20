@@ -25,7 +25,7 @@ export const Title = styled.h2`
   font-family: "Teko";
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
@@ -50,7 +50,7 @@ export const OpenSubscriptions = styled.div`
 
 export const OpenSubscriptionsTitle = styled.p`
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-size: 12px;
   line-height: 16px;
   color: ${THEME.PRIMARY.GREEN};
@@ -62,7 +62,7 @@ export const ChampionshipType = styled.h2`
   margin-top: 20px;
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 24px;
   line-height: 24px;
 `;

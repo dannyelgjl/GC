@@ -9,13 +9,16 @@ const Button = ({
   onClick,
   isChangeColorPro,
   isChangeColorOpen,
+  href,
+  target,
 }: IButton) => {
   return (
     <S.Container
       isChangeColor={isChangeColor}
       isChangeColorPro={isChangeColorPro}
       isChangeColorOpen={isChangeColorOpen}
-      onClick={onClick}
+      href={href}
+      target={target}
     >
       <S.Wrapper>
         <S.Icon src={icon} />

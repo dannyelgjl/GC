@@ -5,4 +5,6 @@ export interface IButton {
   isChangeColorPro?: boolean;
   isChangeColorOpen?: boolean;
   onClick?: () => void;
+  href?: string;
+  target?: string;
 }

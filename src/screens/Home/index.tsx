@@ -75,23 +75,17 @@ const Home = () => {
 
   const handleChangePlayer = () => {
     setChangePlayer(!changePlayer);
+
+    setShowPopover(false);
   };
 
   const handleShowCheaters = () => {
-    setShowCheaters(!showCheaters)!;
+    setShowCheaters(!showCheaters);
   };
 
   const handleShowPopover = () => {
     setShowPopover(!showPopover);
   };
-
-  const handleOpenLobby = useCallback(() => {
-    window.open(player?.lobby?.action?.link, "_blank");
-  }, [player?.lobby?.action?.link]);
-
-  const handleOpenRanked = useCallback(() => {
-    window.open(player?.ranked?.action?.link, "_blank");
-  }, [player?.ranked?.action?.link]);
 
   return (
     <Container>
@@ -121,25 +115,20 @@ const Home = () => {
 
         <Content>
           <Wrapper borderRight>
-            <div>
-              <Championships
-                title={player?.tournaments?.label}
-                championshipName={player?.tournaments?.nextTournament?.name}
-                status={player?.tournaments?.nextTournament?.status}
-              >
-                <SubscribedTeams
-                  subscribedQuantity={
-                    player?.tournaments?.nextTournament?.currentTeams
-                  }
-                  maxParticipants={
-                    player?.tournaments?.nextTournament?.maxTeams
-                  }
-                  value={totalValue}
-                  isProgressBar
-                />
-              </Championships>
-              {/* renderComponent={() => <Header />} */}
-            </div>
+            <Championships
+              title={player?.tournaments?.label}
+              championshipName={player?.tournaments?.nextTournament?.name}
+              status={"Inscrições Abertas"}
+            >
+              <SubscribedTeams
+                subscribedQuantity={
+                  player?.tournaments?.nextTournament?.currentTeams
+                }
+                maxParticipants={player?.tournaments?.nextTournament?.maxTeams}
+                value={totalValue}
+                isProgressBar
+              />
+            </Championships>
           </Wrapper>
 
           <Wrapper borderRight>
@@ -156,7 +145,8 @@ const Home = () => {
             />
 
             <Button
-              onClick={() => handleOpenLobby()}
+              href={player?.ranked?.action?.link}
+              target="_blank"
               title={player?.lobby?.action?.label}
               icon={iconArrow}
               isChangeColor
@@ -179,7 +169,8 @@ const Home = () => {
             />
 
             <Button
-              onClick={() => handleOpenRanked()}
+              href={player?.ranked?.action?.link}
+              target="_blank"
               title={player?.ranked?.action?.label}
               icon={usersIcon}
               isChangeColorPro={player?.ranked?.type === "pro"}
@@ -204,7 +195,6 @@ const Home = () => {
               <ButtonTitle>Baixar Gamers Club Anti-Cheat</ButtonTitle>
             </ButtonDownload>
           </ConfigContainer>
-
           <S.PlayersStatusContainer>
             <PlayersStatus
               colorStatus
@@ -226,17 +216,16 @@ const Home = () => {
               />
             )}
           </S.PlayersStatusContainer>
-
           <Popover show={showPopover}>
             <S.ChangeAvatarContainer onClick={() => handleChangePlayer()}>
               <S.UserPlusIcon />
-              <S.Label to="">Alterar Avatar</S.Label>
+              <S.Label>Alterar Avatar</S.Label>
             </S.ChangeAvatarContainer>
 
             <S.HideCheatersContainer onClick={() => handleShowCheaters()}>
               <S.EyerOffIcon />
 
-              <S.Label to="">Ocultar Cheaters Banidos</S.Label>
+              <S.Label>Ocultar Cheaters Banidos</S.Label>
             </S.HideCheatersContainer>
           </Popover>
         </Footer>

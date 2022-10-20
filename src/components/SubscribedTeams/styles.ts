@@ -19,7 +19,7 @@ export const Content = styled.div`
 
 export const Title = styled.p`
   font-size: 12px;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-family: "Poppins";
   line-height: 20px;
 `;
@@ -51,7 +51,7 @@ export const Bar = styled.div<IBar>`
 export const SubscribedQuantity = styled.p`
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 12px;
   line-height: 20px;
   color: ${THEME.NEUTRAL.WHITE};
@@ -60,7 +60,7 @@ export const SubscribedQuantity = styled.p`
 export const MaxParticipants = styled.p`
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 12px;
   line-height: 20px;
 

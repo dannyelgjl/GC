@@ -29,7 +29,7 @@ export const QuantityOnline = styled.p<IColor>`
   color: ${({ isColor }) => (isColor ? `${THEME.PRIMARY.BLUE}` : "#FB4B56")};
 
   font-size: 24px;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   line-height: 24px;
 `;
 
@@ -38,11 +38,11 @@ export const Online = styled.p<IColor>`
 
   font-size: 12px;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
 `;
 
 export const Player = styled.p`
   font-size: 12px;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
 `;

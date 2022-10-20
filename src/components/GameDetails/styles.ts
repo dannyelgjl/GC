@@ -28,7 +28,7 @@ export const Title = styled.h2`
   font-family: "Teko";
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
@@ -58,7 +58,7 @@ export const CardsGame = styled.div`
 export const NumberGames = styled.h2<Color>`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
@@ -85,7 +85,7 @@ export const NumberGames = styled.h2<Color>`
 export const NumberVictorie = styled.h2`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
@@ -95,7 +95,7 @@ export const NumberVictorie = styled.h2`
 export const NumberDefeats = styled.h2`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
@@ -105,7 +105,7 @@ export const NumberDefeats = styled.h2`
 export const Games = styled.p`
   font-family: "Teko";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 16px;
   line-height: 16px;
   text-transform: uppercase;
