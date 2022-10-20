@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useState,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-} from "react";
+import { useEffect, useState, useMemo } from "react";
 import {
   Card,
   Avatar,
@@ -138,7 +132,7 @@ const Home = () => {
               numberGames={player?.lobby?.matches}
               numberVictories={player?.lobby?.wins}
               numberDefeats={player?.lobby?.losses}
-              victoriesLabel="Vitória"
+              victoriesLabel="Vitórias"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
               isColorNumberDefault
@@ -161,7 +155,7 @@ const Home = () => {
               numberGames={player?.ranked?.matches}
               numberVictories={player?.ranked?.wins}
               numberDefeats={player?.ranked?.losses}
-              victoriesLabel="Vitória"
+              victoriesLabel="Vitórias"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
               isColorNumberBlue={player?.ranked?.type === "open"}
