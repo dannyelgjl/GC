@@ -15,9 +15,10 @@ export const Container = styled.a<Color>`
   width: 100%;
   height: 40px;
 
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  border: 1px solid ${THEME.BORDER.GRAY[600]};
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]},
+    0px 4px 8px ${THEME.BOX_SHADOW.SHADOW[900]},
+    inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
   border-radius: 2px;
   border-style: none;
 
@@ -31,7 +32,7 @@ export const Container = styled.a<Color>`
       &:hover {
         opacity: 1;
         transition: 0.5s;
-        background: rgb(198, 162, 69);
+        background: ${THEME.RGB.YELLOW};
       }
     `}
 
@@ -43,7 +44,7 @@ export const Container = styled.a<Color>`
       &:hover {
         opacity: 1;
         transition: 0.5s;
-        background: rgb(183, 49, 56);
+        background: ${THEME.RGB.RED};
       }
     `}
 
@@ -55,7 +56,7 @@ export const Container = styled.a<Color>`
       &:hover {
         opacity: 1;
         transition: 0.8s;
-        background: rgb(26, 104, 173);
+        background: ${THEME.RGB.BLUE};
       }
     `}
 `;

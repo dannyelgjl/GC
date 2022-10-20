@@ -50,8 +50,8 @@ export const CardsGame = styled.div`
   margin-right: 8px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.04) 0%,
-    rgba(255, 255, 255, 0) 100%
+    ${THEME.LINEAR_GRADIENT.BLACK[400]} 0%,
+    ${THEME.LINEAR_GRADIENT.BLACK[700]} 100%
   );
 `;
 

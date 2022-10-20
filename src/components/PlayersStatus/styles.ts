@@ -26,7 +26,8 @@ export const OnlineContainer = styled.div`
 
 export const QuantityOnline = styled.p<IColor>`
   margin-right: 8px;
-  color: ${({ isColor }) => (isColor ? `${THEME.PRIMARY.BLUE}` : "#FB4B56")};
+  color: ${({ isColor }) =>
+    isColor ? `${THEME.PRIMARY.BLUE}` : `${THEME.SECONDARY.LIGHT_RED}`};
 
   font-size: 24px;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
@@ -34,7 +35,8 @@ export const QuantityOnline = styled.p<IColor>`
 `;
 
 export const Online = styled.p<IColor>`
-  color: ${({ isColor }) => (isColor ? `${THEME.PRIMARY.BLUE}` : "#FB4B56")};
+  color: ${({ isColor }) =>
+    isColor ? `${THEME.PRIMARY.BLUE}` : `${THEME.SECONDARY.LIGHT_RED}`};
 
   font-size: 12px;
   font-family: "Poppins", sans-serif;

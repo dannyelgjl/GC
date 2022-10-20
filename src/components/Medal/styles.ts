@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import THEME from "../../styles/theme/theme";
 
 type Color = {
   isChangeColor: boolean;
@@ -15,15 +16,16 @@ export const Container = styled.div<Color>`
       180deg,
       ${
         isChangeColor
-          ? "rgba(251, 75, 86, 0) 50%, rgba(251, 75, 86, 0.16) 98.7%"
-          : "rgba(89, 104, 248, 0) 50%, rgba(89, 104, 248, 0.16) 98.7%)"
+          ? `${THEME.LINEAR_GRADIENT.BLACK[20]} 50%, ${THEME.LINEAR_GRADIENT_SECONDARY.RED} 98.7%`
+          : `${THEME.LINEAR_GRADIENT.BLACK[30]} 50%, ${THEME.LINEAR_GRADIENT_SECONDARY.BLUE} 98.7%)`
       }
       
     )#1c1d2c,
   `};
   border: 1px solid
-    ${({ isChangeColor }) => (isChangeColor ? "#f23641" : "#49A3FD")};
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+    ${({ isChangeColor }) =>
+      isChangeColor ? `${THEME.BORDER.RED}` : `${THEME.BORDER.BLUE}`};
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[800]};
   border-radius: 2px;
 `;
 
@@ -31,7 +33,8 @@ export const Line = styled.div<Color>`
   width: 100%;
   height: 1px;
   border: 1px dashed
-    ${({ isChangeColor }) => (isChangeColor ? "#f23641" : "#49A3FD")};
+    ${({ isChangeColor }) =>
+      isChangeColor ? `${THEME.BORDER.RED}` : `${THEME.BORDER.BLUE}`};
   margin-top: 8px;
 `;
 

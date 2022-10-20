@@ -6,13 +6,12 @@ import iconDownload from "../../assets/icons/download.png";
 import userPlusIcon from "../../assets/icons/userplus.png";
 import eyerOffIcon from "../../assets/icons/eyeoff.png";
 import eyerIcon from "../../assets/icons/eye-outline.png";
-import { Link } from "react-router-dom";
 
 import THEME from "../../styles/theme/theme";
 
-type IBorder = {
+interface IBorder {
   borderRight?: boolean;
-};
+}
 
 export const Container = styled.div`
   display: flex;
@@ -77,8 +76,8 @@ export const CardsGame = styled.div`
   margin-right: 8px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.04) 0%,
-    rgba(255, 255, 255, 0) 100%
+    ${THEME.LINEAR_GRADIENT.BLACK[400]} 0%,
+    ${THEME.LINEAR_GRADIENT.BLACK[700]} 100%
   );
 `;
 
@@ -109,8 +108,8 @@ export const Wrapper = styled.div<IBorder>`
   width: 33.4%;
 
   border-right: ${({ borderRight }) =>
-    borderRight ? "0.5px solid rgba(255, 255, 255, 0.16)" : ""}; //
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.16);
+    borderRight ? `0.5px solid ${THEME.BORDER.GRAY[600]}` : ""}; //
+  border-bottom: 0.5px solid ${THEME.BORDER.GRAY[600]};
   padding: 24px 16px 24px 16px;
 `;
 
@@ -134,9 +133,10 @@ export const ButtonConfig = styled.button`
   justify-content: center;
   margin-right: 8px;
   padding: 10px;
-  background: #383b51;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  background: ${THEME.PRIMARY.BACKGROUND};
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]},
+    0px 4px 8px ${THEME.BOX_SHADOW.SHADOW[900]},
+    inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
   border-radius: 2px;
   outline: none;
 
@@ -152,10 +152,11 @@ export const ButtonDownload = styled.a`
 
   padding: 12px 24px 12px 24px;
 
-  background: #383b51;
+  background: ${THEME.PRIMARY.BACKGROUND};
 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.16),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]},
+    0px 4px 8px ${THEME.BOX_SHADOW.SHADOW[900]},
+    inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
   border-radius: 2px;
 `;
 
@@ -190,7 +191,7 @@ export const PlayersStatusContainer = styled.div`
 
 export const ChangeAvatarContainer = styled.button`
   display: flex;
-  background: #383b51;
+  background: ${THEME.PRIMARY.BACKGROUND};
   border-style: none;
   outline: none;
   margin-bottom: 18px;
@@ -216,7 +217,7 @@ export const Label = styled.p`
 
 export const HideCheatersContainer = styled.button`
   display: flex;
-  background: #383b51;
+  background: ${THEME.PRIMARY.BACKGROUND};
   margin-bottom: 18px;
   outline: none;
   border: none;

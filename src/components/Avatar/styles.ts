@@ -35,5 +35,5 @@ export const ID = styled.p`
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-size: 12px;
   line-height: 20px;
-  color: rgba(255, 255, 255, 0.48);
+  color: ${THEME.NEUTRAL.GRAY_RGBA};
 `;

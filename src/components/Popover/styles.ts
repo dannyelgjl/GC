@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import THEME from "../../styles/theme/theme";
 
 export const Container = styled.div`
   width: 280px;
@@ -13,9 +14,9 @@ export const Container = styled.div`
     0px 8px 16px rgba(0, 0, 0, 0.24);
   border-radius: 2px;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid ${THEME.BORDER.GRAY[700]};
 
-  background: #383b51;
+  background: ${THEME.PRIMARY.BACKGROUND};
 
   position: absolute;
   bottom: 0;
@@ -33,7 +34,7 @@ export const Container = styled.div`
     width: 0;
     height: 0;
     position: absolute;
-    border-color: transparent transparent #a9a9a9;
+    border-color: transparent transparent ${THEME.SECONDARY.GRAY[300]};
     border-style: solid;
     border-width: 10px;
   }
@@ -46,7 +47,7 @@ export const Container = styled.div`
     left: 20px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #383b51;
+    border-bottom: 10px solid ${THEME.PRIMARY.BACKGROUND};
     width: 0;
     height: 0;
   }
@@ -62,5 +63,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-export const Arrow = styled.div``;

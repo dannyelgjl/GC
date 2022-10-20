@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pinIcon from "../../assets/icons/pin.png";
 import THEME from "../../styles/theme/theme";
 
 type IRotate = {
@@ -26,8 +25,8 @@ export const ContainerBar = styled.div`
   height: 16px;
   background: ${THEME.PRIMARY.PRIMARY};
   border-radius: 16px;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.04),
-    inset 0px 2px 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px ${THEME.LINEAR_GRADIENT.BLACK[400]},
+    inset 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]};
   padding: 4px;
 `;
 
@@ -38,13 +37,13 @@ export const Bar = styled.div<Color>`
   background: ${({ isChangeColor }) => `
     ${
       isChangeColor
-        ? "linear-gradient(90deg, #FB4B56 0%, #FC6973 100%)"
-        : "linear-gradient(90deg, #49a3fd 0%, #61b3fa 100%)"
+        ? `linear-gradient(90deg, ${THEME.SECONDARY.LIGHT_RED} 0%, ${THEME.PRIMARY.RED} 100%)`
+        : `linear-gradient(90deg, ${THEME.BORDER.BLUE} 0%, ${THEME.SECONDARY.BLUE} 100%)`
     }
   `};
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  border: 1px solid ${THEME.BORDER.GRAY[700]};
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]},
+    inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
 `;
 
 export const LevelTop = styled.div`

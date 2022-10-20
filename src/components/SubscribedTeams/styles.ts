@@ -33,18 +33,22 @@ export const ContainerBar = styled.div`
   align-items: center;
   width: 100%;
 
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid ${THEME.BORDER.GRAY[600]};
   border-radius: 16px;
 `;
 
 export const Bar = styled.div<IBar>`
   width: ${({ value, isProgressBar }) => isProgressBar && `${value}%`};
   height: 10px;
-  background: linear-gradient(90deg, #5968f8 0%, #49a3fd 100%);
+  background: linear-gradient(
+    90deg,
+    ${THEME.SECONDARY.PURPLE} 0%,
+    ${THEME.BORDER.BLUE} 100%
+  );
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.24);
+  border: 1px solid ${THEME.BORDER.GRAY[700]};
+  box-shadow: 0px 2px 4px ${THEME.BOX_SHADOW.SHADOW[900]},
+    inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
   border-radius: 16px;
 `;
 
@@ -64,5 +68,5 @@ export const MaxParticipants = styled.p`
   font-size: 12px;
   line-height: 20px;
 
-  color: rgba(255, 255, 255, 0.48);
+  color: ${THEME.NEUTRAL.GRAY_RGBA};
 `;
