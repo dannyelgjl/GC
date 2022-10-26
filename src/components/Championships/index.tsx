@@ -1,12 +1,5 @@
-import { ReactNode } from "react";
+import { IChampionships } from "./types";
 import * as S from "./styles";
-
-interface IChampionships {
-  title?: string;
-  championshipName?: string;
-  status?: string;
-  children?: ReactNode;
-}
 
 const Championships = ({
   title,

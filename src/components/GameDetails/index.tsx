@@ -11,9 +11,7 @@ const GameDetails = ({
   numberDefeats,
   defeatsLabel,
   icon,
-  isColorNumberDefault,
-  isColorNumberBlue,
-  isColorNumberRed,
+  isColorNumberChange,
 }: IGameDetails) => {
   return (
     <S.Container>
@@ -24,11 +22,7 @@ const GameDetails = ({
 
       <S.CardsGameContainer>
         <S.CardsGame>
-          <S.NumberGames
-            isColorNumberRed={isColorNumberRed}
-            isColorNumberBlue={isColorNumberBlue}
-            isColorNumberDefault={isColorNumberDefault}
-          >
+          <S.NumberGames isColorNumberChange={isColorNumberChange}>
             {numberGames}
           </S.NumberGames>
           <S.Games>{gamesLabel}</S.Games>

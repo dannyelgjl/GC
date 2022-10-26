@@ -19,6 +19,8 @@ export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  width: 110px;
 `;
 
 export const NickName = styled.h2`

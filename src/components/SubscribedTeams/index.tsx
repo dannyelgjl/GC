@@ -1,4 +1,3 @@
-import React from "react";
 import { ISubscribedTeams } from "./types";
 import * as S from "./styles";
 

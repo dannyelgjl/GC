@@ -10,8 +10,8 @@ export const Container = styled.div`
   align-items: flex-start;
   padding: 16px 20px;
 
-  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.24),
-    0px 8px 16px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 16px 32px ${THEME.BOX_SHADOW.SHADOW[900]},
+    0px 8px 16px ${THEME.BOX_SHADOW.SHADOW[900]};
   border-radius: 2px;
 
   border: 1px solid ${THEME.BORDER.GRAY[700]};

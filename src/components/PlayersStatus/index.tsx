@@ -1,3 +1,4 @@
+import Tooltip from "react-tooltip";
 import { IPlayersStatus } from "./types";
 import * as S from "./styles";
 
@@ -7,6 +8,7 @@ const PlayersStatus = ({
   title,
   status,
   colorStatus,
+  showTooltip,
 }: IPlayersStatus) => {
   return (
     <S.PlayersOnline isMargin={isMargin}>
@@ -14,9 +16,15 @@ const PlayersStatus = ({
         {quantityOnline}
       </S.QuantityOnline>
 
-      <S.OnlineContainer>
+      <S.OnlineContainer
+        data-tip={
+          showTooltip && "Você pode ocultar os cheaters indo nas configurações!"
+        }
+      >
         <S.Player>{title}</S.Player>
         <S.Online isColor={colorStatus}>{status}</S.Online>
+
+        {showTooltip && <Tooltip />}
       </S.OnlineContainer>
     </S.PlayersOnline>
   );

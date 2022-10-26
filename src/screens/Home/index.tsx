@@ -19,22 +19,12 @@ import missionsIcon from "../../assets/icons/missions.png";
 import pinBlue from "../../assets/icons/pin.png";
 import pinRed from "../../assets/icons/pin-red.png";
 import missionsIconPro from "../../assets/icons/missions-pro.png";
-import {
-  Container,
-  Content,
-  Wrapper,
-  Footer,
-  ConfigContainer,
-  ButtonConfig,
-  IconGear,
-  ButtonDownload,
-  ButtonTitle,
-  DownloadIcon,
-} from "./styles";
+
 import ctLogo from "../../assets/logos/ct.png";
 import terrorLogo from "../../assets/logos/terror.png";
-import * as S from "./styles";
 import api from "../../service/api";
+
+import * as S from "./styles";
 
 import { IPlayerDetail } from "./types";
 
@@ -44,15 +34,6 @@ const Home = () => {
   const [showCheaters, setShowCheaters] = useState<boolean>(true);
   const [changePlayer, setChangePlayer] = useState<boolean>(false);
   const [totalValue, setTotalValue] = useState<number>(0);
-
-  useEffect(() => {
-    api
-      .get(`/${changePlayer ? "fallen" : "lizzy"}`)
-      .then((response) => {
-        setPlayer(response.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, [changePlayer]);
 
   useMemo(() => {
     const maxTeams = player?.tournaments?.nextTournament?.maxTeams ?? 0;
@@ -66,6 +47,15 @@ const Home = () => {
     player?.tournaments?.nextTournament?.currentTeams,
     player?.tournaments?.nextTournament?.maxTeams,
   ]);
+
+  useEffect(() => {
+    api
+      .get(`/${changePlayer ? "fallen" : "lizzy"}`)
+      .then((response) => {
+        setPlayer(response.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, [changePlayer]);
 
   const handleChangePlayer = () => {
     setChangePlayer(!changePlayer);
@@ -82,7 +72,7 @@ const Home = () => {
   };
 
   return (
-    <Container>
+    <S.Container>
       <Card>
         <Header
           isColor={changePlayer}
@@ -107,8 +97,8 @@ const Home = () => {
           />
         </Header>
 
-        <Content>
-          <Wrapper borderRight>
+        <S.Content>
+          <S.Wrapper borderRight>
             <Championships
               title={player?.tournaments?.label}
               championshipName={player?.tournaments?.nextTournament?.name}
@@ -123,9 +113,9 @@ const Home = () => {
                 isProgressBar
               />
             </Championships>
-          </Wrapper>
+          </S.Wrapper>
 
-          <Wrapper borderRight>
+          <S.Wrapper borderRight>
             <GameDetails
               title={player?.lobby?.label}
               icon={lobbyIcon}
@@ -135,7 +125,7 @@ const Home = () => {
               victoriesLabel="Vitórias"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
-              isColorNumberDefault
+              isColorNumberChange="default"
             />
 
             <Button
@@ -143,10 +133,10 @@ const Home = () => {
               target="_blank"
               title={player?.lobby?.action?.label}
               icon={iconArrow}
-              isChangeColor
+              isChangeColor={"default"}
             />
-          </Wrapper>
-          <Wrapper>
+          </S.Wrapper>
+          <S.Wrapper>
             <GameDetails
               title={player?.ranked?.label}
               icon={
@@ -158,8 +148,9 @@ const Home = () => {
               victoriesLabel="Vitórias"
               defeatsLabel="Derrotas"
               gamesLabel="Partidas"
-              isColorNumberBlue={player?.ranked?.type === "open"}
-              isColorNumberRed={player?.ranked?.type === "pro"}
+              isColorNumberChange={
+                player?.ranked?.type === "pro" ? "red" : "blue"
+              }
             />
 
             <Button
@@ -167,28 +158,27 @@ const Home = () => {
               target="_blank"
               title={player?.ranked?.action?.label}
               icon={usersIcon}
-              isChangeColorPro={player?.ranked?.type === "pro"}
-              isChangeColorOpen={player?.ranked?.type === "open"}
+              isChangeColor={player?.ranked?.type === "pro" ? "red" : "blue"}
             />
-          </Wrapper>
-        </Content>
+          </S.Wrapper>
+        </S.Content>
 
-        <Footer>
-          <ConfigContainer>
-            <ButtonConfig onClick={() => handleShowPopover()}>
-              <IconGear />
-            </ButtonConfig>
+        <S.Footer>
+          <S.ConfigContainer>
+            <S.ButtonConfig onClick={() => handleShowPopover()}>
+              <S.IconGear />
+            </S.ButtonConfig>
 
-            <ButtonDownload
+            <S.ButtonDownload
               href={
                 !player?.anticheat?.download ? "" : player?.anticheat?.download
               }
               target="_blank"
             >
-              <DownloadIcon />
-              <ButtonTitle>Baixar Gamers Club Anti-Cheat</ButtonTitle>
-            </ButtonDownload>
-          </ConfigContainer>
+              <S.DownloadIcon />
+              <S.ButtonTitle>Baixar Gamers Club Anti-Cheat</S.ButtonTitle>
+            </S.ButtonDownload>
+          </S.ConfigContainer>
           <S.PlayersStatusContainer>
             <PlayersStatus
               colorStatus
@@ -201,13 +191,16 @@ const Home = () => {
             />
 
             {showCheaters && (
-              <PlayersStatus
-                quantityOnline={
-                  player?.reports?.length ? player?.reports[1]?.total : 0
-                }
-                title="Cheaters Banidos"
-                status="Nos últimos 7 dias"
-              />
+              <>
+                <PlayersStatus
+                  showTooltip
+                  quantityOnline={
+                    player?.reports?.length ? player?.reports[1]?.total : 0
+                  }
+                  title="Cheaters Banidos"
+                  status="Nos últimos 7 dias"
+                />
+              </>
             )}
           </S.PlayersStatusContainer>
           <Popover show={showPopover}>
@@ -222,9 +215,9 @@ const Home = () => {
               <S.Label>Ocultar Cheaters Banidos</S.Label>
             </S.HideCheatersContainer>
           </Popover>
-        </Footer>
+        </S.Footer>
       </Card>
-    </Container>
+    </S.Container>
   );
 };
 

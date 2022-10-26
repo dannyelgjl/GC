@@ -1,10 +1,7 @@
 export interface IButton {
   title?: string;
   icon: string;
-  isChangeColor?: boolean;
-  isChangeColorPro?: boolean;
-  isChangeColorOpen?: boolean;
-  onClick?: () => void;
+  isChangeColor?: "default" | "blue" | "red";
   href?: string;
   target?: string;
 }

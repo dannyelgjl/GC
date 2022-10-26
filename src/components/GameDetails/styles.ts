@@ -2,9 +2,7 @@ import styled, { css } from "styled-components";
 import THEME from "../../styles/theme/theme";
 
 type Color = {
-  isColorNumberDefault?: boolean;
-  isColorNumberRed?: boolean;
-  isColorNumberBlue?: boolean;
+  isColorNumberChange?: "default" | "red" | "blue";
 };
 
 export const Container = styled.div`
@@ -63,20 +61,20 @@ export const NumberGames = styled.h2<Color>`
   line-height: 36px;
   text-transform: uppercase;
 
-  ${({ isColorNumberDefault }) =>
-    isColorNumberDefault &&
+  ${({ isColorNumberChange }) =>
+    isColorNumberChange === "default" &&
     css`
       color: ${THEME.PRIMARY.YELLOW};
     `}
 
-  ${({ isColorNumberBlue }) =>
-    isColorNumberBlue &&
+  ${({ isColorNumberChange }) =>
+    isColorNumberChange === "blue" &&
     css`
       color: ${THEME.PRIMARY.BLUE};
     `}
 
-  ${({ isColorNumberRed }) =>
-    isColorNumberRed &&
+  ${({ isColorNumberChange }) =>
+    isColorNumberChange === "red" &&
     css`
       color: ${THEME.SECONDARY.RED};
     `}

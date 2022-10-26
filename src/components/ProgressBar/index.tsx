@@ -1,5 +1,4 @@
-import React from "react";
-
+import { IProgressBar } from "./types";
 import {
   Container,
   ContainerBar,
@@ -10,13 +9,6 @@ import {
   TitleLevel,
   WrapperLevel,
 } from "./styles";
-
-interface IProgressBar {
-  isChangeColor: boolean;
-  pinIcon: string;
-  isBarColor?: boolean;
-  value?: number;
-}
 
 const ProgressBar = ({
   isChangeColor,

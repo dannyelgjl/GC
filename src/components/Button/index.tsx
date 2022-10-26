@@ -1,25 +1,9 @@
-import React from "react";
 import { IButton } from "./types";
 import * as S from "./styles";
 
-const Button = ({
-  title,
-  icon,
-  isChangeColor,
-  onClick,
-  isChangeColorPro,
-  isChangeColorOpen,
-  href,
-  target,
-}: IButton) => {
+const Button = ({ title, icon, isChangeColor, href, target }: IButton) => {
   return (
-    <S.Container
-      isChangeColor={isChangeColor}
-      isChangeColorPro={isChangeColorPro}
-      isChangeColorOpen={isChangeColorOpen}
-      href={href}
-      target={target}
-    >
+    <S.Container isChangeColor={isChangeColor} href={href} target={target}>
       <S.Wrapper>
         <S.Icon src={icon} />
         <S.Title isChangeColor={isChangeColor}>{title}</S.Title>

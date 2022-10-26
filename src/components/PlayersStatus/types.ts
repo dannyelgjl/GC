@@ -4,4 +4,5 @@ export interface IPlayersStatus {
   title: string;
   status: string;
   colorStatus?: boolean;
+  showTooltip?: boolean;
 }

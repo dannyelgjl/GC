@@ -7,7 +7,5 @@ export interface IGameDetails {
   numberDefeats?: number;
   defeatsLabel?: string;
   icon?: string;
-  isColorNumberDefault?: boolean;
-  isColorNumberBlue?: boolean;
-  isColorNumberRed?: boolean;
+  isColorNumberChange?: "default" | "red" | "blue";
 }

@@ -2,9 +2,7 @@ import styled, { css } from "styled-components";
 import THEME from "../../styles/theme/theme";
 
 type Color = {
-  isChangeColor?: boolean;
-  isChangeColorPro?: boolean;
-  isChangeColorOpen?: boolean;
+  isChangeColor?: "default" | "blue" | "red";
 };
 
 export const Container = styled.a<Color>`
@@ -25,7 +23,7 @@ export const Container = styled.a<Color>`
   cursor: pointer;
 
   ${({ isChangeColor }) =>
-    isChangeColor &&
+    isChangeColor === "default" &&
     css`
       background-color: ${THEME.PRIMARY.YELLOW};
 
@@ -36,8 +34,8 @@ export const Container = styled.a<Color>`
       }
     `}
 
-  ${({ isChangeColorPro }) =>
-    isChangeColorPro &&
+  ${({ isChangeColor }) =>
+    isChangeColor === "red" &&
     css`
       background-color: ${THEME.SECONDARY.RED};
 
@@ -48,8 +46,8 @@ export const Container = styled.a<Color>`
       }
     `}
 
-    ${({ isChangeColorOpen }) =>
-    isChangeColorOpen &&
+    ${({ isChangeColor }) =>
+    isChangeColor === "blue" &&
     css`
       background-color: ${THEME.PRIMARY.BLUE};
 
@@ -82,7 +80,9 @@ export const Title = styled.h2<Color>`
   text-align: center;
   text-transform: uppercase;
   color: ${({ isChangeColor }) =>
-    isChangeColor ? ` ${THEME.NEUTRAL.BLACK}` : ` ${THEME.NEUTRAL.WHITE}`};
+    isChangeColor === "default"
+      ? ` ${THEME.NEUTRAL.BLACK}`
+      : ` ${THEME.NEUTRAL.WHITE}`};
 
   text-align: center;
 `;

@@ -10,9 +10,8 @@ export const Container = styled.div<Logo>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1200px;
+  width: 1198px;
   height: 128px;
-  border-radius: 2px;
   background: ${({ logo, isColor }) => `
     linear-gradient(
       180deg,
