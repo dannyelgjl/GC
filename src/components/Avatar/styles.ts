@@ -26,13 +26,13 @@ export const UserInfo = styled.div`
 export const NickName = styled.h2`
   font-size: 16px;
   color: ${THEME.NEUTRAL.WHITE};
-  font-family: "Poppins";
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   line-height: 24px;
 `;
 
 export const ID = styled.p`
-  font-family: "Poppins";
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-size: 12px;

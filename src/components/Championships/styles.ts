@@ -22,7 +22,7 @@ export const TrophyIcon = styled.img.attrs({
 `;
 
 export const Title = styled.h2`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
@@ -49,7 +49,7 @@ export const OpenSubscriptions = styled.div`
 `;
 
 export const OpenSubscriptionsTitle = styled.p`
-  font-family: "Poppins", sans-serif;
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   font-size: 12px;
   line-height: 16px;
@@ -60,7 +60,7 @@ export const OpenSubscriptionsTitle = styled.p`
 export const ChampionshipType = styled.h2`
   height: 50px;
   margin-top: 20px;
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 24px;

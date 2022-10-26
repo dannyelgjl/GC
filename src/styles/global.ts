@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import THEME from "./theme/theme";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -14,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body, input, textarea, button {
-        font-family: 'Teko', sans-serif;
+        font-family: ${THEME.FONT_FAMILY.TEKO}, sans-serif;
         font-weight: 400;
         border: none;
         outline: none;

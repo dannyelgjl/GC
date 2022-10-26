@@ -23,7 +23,7 @@ export const Icon = styled.img`
 `;
 
 export const Title = styled.h2`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   color: ${THEME.NEUTRAL.WHITE};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
@@ -54,7 +54,7 @@ export const CardsGame = styled.div`
 `;
 
 export const NumberGames = styled.h2<Color>`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
@@ -81,7 +81,7 @@ export const NumberGames = styled.h2<Color>`
 `;
 
 export const NumberVictorie = styled.h2`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
@@ -91,7 +91,7 @@ export const NumberVictorie = styled.h2`
 `;
 
 export const NumberDefeats = styled.h2`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 36px;
@@ -101,7 +101,7 @@ export const NumberDefeats = styled.h2`
 `;
 
 export const Games = styled.p`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 16px;

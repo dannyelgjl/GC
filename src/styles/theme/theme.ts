@@ -1,4 +1,5 @@
 import FONT_WEIGHT from "./font";
+import FONT_FAMILY from "./font-family";
 
 const PRIMARY = {
   PRIMARY: "#161724",
@@ -79,6 +80,7 @@ const THEME = {
   BOX_SHADOW,
   LINEAR_GRADIENT,
   LINEAR_GRADIENT_SECONDARY,
+  FONT_FAMILY,
 };
 
 export default THEME;

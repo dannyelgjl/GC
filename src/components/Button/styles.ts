@@ -73,7 +73,7 @@ export const Icon = styled.img`
 `;
 
 export const Title = styled.h2<Color>`
-  font-family: "Teko";
+  font-family: ${THEME.FONT_FAMILY.TEKO};
   font-style: normal;
   font-weight: ${THEME.FONT_WEIGHT.REGULAR};
   font-size: 20px;

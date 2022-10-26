@@ -65,6 +65,12 @@ export const ButtonConfig = styled.button`
   outline: none;
 
   cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.5s;
+    background: ${THEME.BOX_SHADOW.SHADOW[800]};
+  }
 `;
 
 export const ButtonDownload = styled.a`
@@ -82,6 +88,12 @@ export const ButtonDownload = styled.a`
     0px 4px 8px ${THEME.BOX_SHADOW.SHADOW[900]},
     inset 0px 1px 0px ${THEME.BORDER.GRAY[500]};
   border-radius: 2px;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.5s;
+    background: ${THEME.BOX_SHADOW.SHADOW[800]};
+  }
 `;
 
 export const ButtonTitle = styled.h2`
@@ -131,7 +143,7 @@ export const UserPlusIcon = styled.img.attrs({
 `;
 
 export const Label = styled.p`
-  font-family: "Poppins", sans-serif;
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-size: 14px;
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   line-height: 22px;

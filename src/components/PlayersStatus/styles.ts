@@ -39,12 +39,12 @@ export const Online = styled.p<IColor>`
     isColor ? `${THEME.PRIMARY.BLUE}` : `${THEME.SECONDARY.LIGHT_RED}`};
 
   font-size: 12px;
-  font-family: "Poppins", sans-serif;
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
 `;
 
 export const Player = styled.p`
   font-size: 12px;
-  font-family: "Poppins", sans-serif;
+  font-family: ${THEME.FONT_FAMILY.POPPINS};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
 `;
