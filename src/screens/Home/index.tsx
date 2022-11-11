@@ -23,6 +23,9 @@ import missionsIconPro from "../../assets/icons/missions-pro.png";
 
 import ctLogo from "../../assets/logos/ct.png";
 import terrorLogo from "../../assets/logos/terror.png";
+import { getFallen } from "../../service/fallen";
+import { getLizzy } from "../../service/lizzy";
+
 import api from "../../service/api";
 
 import * as S from "./styles";
@@ -50,6 +53,37 @@ const Home = () => {
     player?.tournaments?.nextTournament?.maxTeams,
   ]);
 
+  // useEffect(() => {
+  //   fetch(
+  //     `https://5ee78effffee0c0016a1248e.mockapi.io/api/v1/${
+  //       changePlayer ? "fallen" : "lizzy"
+  //     }`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => setPlayer(data.data))
+  //     .catch((err) => console.log(err));
+  // }, [changePlayer]);
+
+  useEffect(() => {
+    if (changePlayer) {
+      getFallen()
+        .then((response) => {
+          if (response.data) {
+            setPlayer(response.data);
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      getLizzy()
+        .then((response) => {
+          if (response.data) {
+            setPlayer(response.data);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [changePlayer]);
+
   useEffect(() => {
     setLoading(true);
 
@@ -57,17 +91,6 @@ const Home = () => {
       setLoading(false);
     }
   }, [player]);
-
-  useEffect(() => {
-    api
-      .get(`/${changePlayer ? "fallen" : "lizzy"}`)
-      .then((response) => {
-        if (response.data.data) {
-          setPlayer(response.data.data);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, [changePlayer]);
 
   const handleChangePlayer = () => {
     setChangePlayer(!changePlayer);
