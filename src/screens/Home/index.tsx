@@ -26,8 +26,6 @@ import terrorLogo from "../../assets/logos/terror.png";
 import { getFallen } from "../../service/fallen";
 import { getLizzy } from "../../service/lizzy";
 
-import api from "../../service/api";
-
 import * as S from "./styles";
 
 import { IPlayerDetail } from "./types";
